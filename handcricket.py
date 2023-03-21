@@ -1,6 +1,18 @@
 
     
+def f():
+    import mysql.connector
 
+    mydb = mysql.connector.connect(host="localhost",user="root",password="admin",db="game")
+
+    mycursor = mydb.cursor()
+
+    sql = "INSERT INTO players(email,name,player_score,computer_score,Result) VALUES ('{}','{}',{},{},'{}');"
+    #val = (hh,aa,bb,cc,dd,ee)
+    mycursor.execute(sql.format(aa,bb,cc,dd,ee))
+
+    mydb.commit()
+    
 aa=input("enter your Email:")
 bb=input("enter your Name:")
     
